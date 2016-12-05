@@ -1,0 +1,30 @@
+@import "variables";
+@import "mixins";
+
+*,
+*:after,
+*:before {
+    @include border-box;
+    }
+img {
+  @include auto;
+}
+.wrapper {
+    @include wrap;
+  @media (min-width:30em) {
+    width: 95%;
+    max-width: $grid-max-width;
+  }
+}
+.wrapper:after, .row:after {
+  @include clearfix;
+}
+
+@for $i from 1 through $grid-columns {
+  .column-#{$i} {
+    width: 100% / 12 * $i;
+  }
+}
+div {
+  border:1px dotted red;
+}
